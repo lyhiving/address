@@ -21,7 +21,7 @@ class address {
         $re['region'] = $parse['region'];
         $re['district'] = isset($parse['district'])  && $parse['district']  ? $parse['district'] : '';
         $re['street'] = ( $fuzz['street'] ) ? $fuzz['street'] : '';
-        $re['street'] = str_replace( [$re['region'], $re['city'], $re['province']], ['', '', ''], $re['street'] );
+        $re['street'] = str_replace( [$re['region'], $re['city'], $re['province'], $re['district']], ['', '', '', ''], $re['street'] );
 
         return $re;
     }

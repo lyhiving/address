@@ -42,7 +42,6 @@ $string = '深圳市龙华区龙华街道1980科技文化产业园3栋317    张
 $r = $address->smart($string);
 ```
 
-```
 
 更多用法参考 [examples](https://github.com/lyhiving/address/blob/master/examples/index.php) 里面的范例。
 
