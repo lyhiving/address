@@ -215,6 +215,10 @@ class address {
         require 'data/a1.php';
 
         $r = array();
+        $r['province'] = '';
+        $r['city'] = '';
+        $r['region'] = '';
+        $r['district'] ='';
 
         if ( $a3 != '' ) {
 
@@ -274,7 +278,7 @@ class address {
                 $r['region'] = '';
             }
         }
-        $r['district'] ='';
+        
         if ( $a4 != '' ) {
             $area4_matches = array();
             foreach ( $a4_data as $id => $v ) {
@@ -287,7 +291,10 @@ class address {
                 $r['district'] =  $area4_matches['name'];
             } 
         }
-
+        $r['void'] = true;
+        if(!$r['province'] && !$r['city'] && !$r['region'] && !$r['district']){
+            $r['void'] = false;
+        }
         return $r;
     }
 
