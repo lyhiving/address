@@ -183,7 +183,6 @@ class address {
                 } else if ( $tmp_pos = mb_strpos( $street, '区', $streetlen ) ) {
                     $a4 = mb_substr( $street, 0, $tmp_pos+1 );
                 } else if ( $tmp_pos = mb_strpos( $street, '镇', $streetlen ) ) {
-                    var_dump( $tmp_pos );
                     $a4 = mb_substr( $street, 0, $tmp_pos+1 );
                 } else if ( $tmp_pos = mb_strpos( $street, '乡', $streetlen ) ) {
                     $a4 = mb_substr( $street, 0, $tmp_pos+1 );
