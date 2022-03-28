@@ -12,6 +12,9 @@ class address {
         } else {
             $re['addr'] = $string;
         }
+        if($re['addr']){
+            $re['addr'] = self::unitAddr($re['addr']);
+        }
 
         $fuzz = self::fuzz( $re['addr'] );
         $parse = self::parse( $fuzz['a1'], $fuzz['a2'], $fuzz['a3'], $fuzz['a4'] );
@@ -25,6 +28,21 @@ class address {
 
         return $re;
     }
+
+    public static function unitAddr($string){
+        $length = strlen($string);
+        if(!$length) return $string;
+        $max = false;
+        for($i=1; $i<ceil($length/2); $i++){
+            $check = substr($string, 0, $i);
+            if(strpos($string, $check.$check)===0 && $max==false){
+                $max= true;
+                $newstring = str_replace($check.$check, $check, $string);
+                return $newstring;
+            }
+        }
+        return $string;
+    } 
 
     /*
     ** 分离手机号( 座机 )，身份证号，姓名等用户信息
